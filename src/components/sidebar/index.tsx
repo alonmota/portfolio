@@ -29,48 +29,44 @@ export default function Sidebar({visible}: { visible: boolean }) {
 					ease-linear
 				`}
 			>
-				<nav className='overflow-hidden mr-2'>
-					<ul className="flex flex-col justify-start overflow-hidden">
+				<nav className='overflow-hidden mx-1 flex-grow h-full'>
+					<ul className="flex flex-col flex-grow h-full justify-start overflow-hidden">
 						{
 							routes.map(route => <li
+								className='mb-2'
 								key={route.path}
 							>
-								<Button>
-									<Link
-										title={route.name}
-										className={`${isPathActive(route.path)} flex flex-row whitespace-nowrap align-middle justify-start hover:underline hover:bg-neutral group rounded-full`}
-										href={route.path}
-									>
-										<div className='flex flex-col justify-center p-2 text-large'>{route.icon}</div>
-										<div className={`
-												overflow-hidden max-w-fit
+								<Link
+									title={route.name}
+									className={`${isPathActive(route.path)} flex flex-row whitespace-nowrap align-middle justify-start hover:underline hover:bg-neutral group rounded-full h-min`}
+									href={route.path}
+								>
+									<span className='p-2 h-min'>{route.icon}</span>
+									<span className={`
+												overflow-hidden max-w-fit  h-min
 												transition-all duration-1000 ${minified ? 'w-0' : 'w-[120px]'}
 											` }>
-											<div className={`p-2`}>
-												{route.name}
-											</div>
-										</div>
+										<span className={`px-2 text-large ${minified ? 'ml-0' : '-ml-2'}`}>
+											{route.name}
+										</span>
+									</span>
 											
-									</Link>
-								</Button>
+								</Link>
 							</li>
 							)
 						}
+						<li className='flex flex-grow'></li>
+						<li className='flex flex-row w-full justify-end'>
+							<Button 
+								className={`flex flex-row whitespace-nowrap align-middle justify-end hover:underline hover:bg-neutral group rounded-full`}
+								title='Expand Sidebar' onClick={() => setMinified(!minified)}>
+								<div className='flex flex-col justify-center p-2 text-large'>{
+									minified ? <GoChevronRight /> : <GoChevronLeft />
+								}</div>
+							</Button>
+						</li>
 					</ul>
 				</nav>
-				<>
-					{
-						visible && 
-						<Button 
-							className='absolute top-0 -right-[4px] bg-dark1  py-3 rounded-tr-2xl rounded-br-2xl text-[10px] bg-dark-1'
-							title='Expand Sidebar' onClick={() => setMinified(!minified)}>
-							{
-								minified ? <GoChevronRight /> : <GoChevronLeft />
-							}
-						</Button>
-
-					}
-				</>
 			</div>
 		</>
 	);

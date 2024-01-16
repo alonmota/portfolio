@@ -24,3 +24,8 @@
 ::-webkit-scrollbar-thumb:hover {
 	background: theme(colors.dark.1);
 }
+
+body {
+	background: theme(colors.dark.gradient);
+}
+

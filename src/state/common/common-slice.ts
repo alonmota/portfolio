@@ -4,13 +4,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 interface CommonState {
-	sidebarMinified: boolean;
 	sidebarVisible: boolean;
 }
 
 const initialState: CommonState = {
-	sidebarMinified: false,
-	sidebarVisible: true,
+	sidebarVisible: false,
 }
 
 const commonSlice = createSlice({
@@ -20,11 +18,8 @@ const commonSlice = createSlice({
 		toggleSidebarVisibility(state) {
 			state.sidebarVisible = !state.sidebarVisible;
 		},
-		toggleSidebarMinified(state) {
-			state.sidebarMinified = !state.sidebarMinified;
-		}
 	}
 })
 
-export const { toggleSidebarVisibility, toggleSidebarMinified } = commonSlice.actions;
+export const { toggleSidebarVisibility } = commonSlice.actions;
 export default commonSlice.reducer;

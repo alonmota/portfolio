@@ -13,18 +13,18 @@ export default function HomeLayout({
 	const sidebarVisible =  useAppSelector((state) => state.common.sidebarVisible)
 	
 	return (
-		<main className="flex h-screen w-full flex-col items-start bg-dark-1 text-light font-sans">
+		<main className="flex h-screen w-full flex-col items-start text-light font-sans">
 			<Header></Header>
 
-			<section className='flex flex-row w-full h-full flex-grow relative'>
+			<section className='flex flex-row w-full h-full flex-grow relative overflow-auto'>
 				<Sidebar visible={sidebarVisible}></Sidebar>
 				
-				<fieldset 
+				<div 
 					id='content'
-					className={`flex flex-col w-full`}
+					className={`flex flex-col w-full min-w-[17rem]`}
 				>
 					{children}
-				</fieldset>
+				</div>
 
 			</section>
 		</main>
