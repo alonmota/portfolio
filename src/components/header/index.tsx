@@ -23,7 +23,7 @@ export default function Header() {
 	return (
 		<header className="flex flex-row w-full py-1 bg-dark-1 text-light justify-between">
 			<div className='flex flex-row flex-grow'>
-				<Button onClick={_toggleSidebarVisibility} className='hover:bg-neutral mx-1 p-2 rounded-full text-large h-min'><HiMenu /></Button>
+				<Button onClick={_toggleSidebarVisibility} className='hover:bg-neutral mx-1 p-2 rounded-full h-min text-2xl md:text-large'><HiMenu /></Button>
 				<Link
 					title={'Home'}
 					className="flex justify-start font-sans text-lg font-semibold self-center ml-2 transition click:scale-125"
@@ -35,16 +35,16 @@ export default function Header() {
 				</Link>
 			</div>
 			<span className='mr-2 flex flex-row justify-center align-middle'>
-				<a href="https://github.com/alonmota" target='_blank' className='hover:bg-neutral p-2 rounded-full text-large h-min'>
+				<a href="https://github.com/alonmota" target='_blank' className='hover:bg-neutral p-2 rounded-full h-min text-2xl md:text-large'>
 					<FaGithub  />
 				</a>
-				<a href="https://www.linkedin.com/in/alon-mota-lourenco-147966117/" target='_blank' className='hover:bg-neutral p-2 rounded-full text-large h-min'>
+				<a href="https://www.linkedin.com/in/alon-mota-lourenco-147966117/" target='_blank' className='hover:bg-neutral p-2 rounded-full h-min text-2xl md:text-large'>
 					<FaLinkedin />
 				</a>
-				<a href={`//api.whatsapp.com/send?phone=${COMPANY_NUMBER.replace(/[^\w\s]/gi, '')}&text=${DEFAULT_MESSAGE}`} target='_blank' className='hover:bg-neutral p-2 rounded-full text-large h-min'>
+				<a href={`//api.whatsapp.com/send?phone=${COMPANY_NUMBER.replace(/[^\w\s]/gi, '')}&text=${DEFAULT_MESSAGE}`} target='_blank' className='hover:bg-neutral p-2 rounded-full h-min text-2xl md:text-large'>
 					<FaWhatsapp />
 				</a>
-				<a href={`mailto:${COMPANY_EMAIL}?subject=${DEFAULT_SUBJECT}&body=${DEFAULT_MESSAGE}`} target='_blank' className='hover:bg-neutral p-2 rounded-full text-large h-min'>
+				<a href={`mailto:${COMPANY_EMAIL}?subject=${DEFAULT_SUBJECT}&body=${DEFAULT_MESSAGE}`} target='_blank' className='hover:bg-neutral p-2 rounded-full h-min text-2xl md:text-large'>
 					<RiMailSendLine />
 				</a>
 			</span>

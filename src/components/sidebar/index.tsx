@@ -1,20 +1,24 @@
+import Button from '@/components/button';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { ReactElement, useState } from 'react';
-import { GoHome, GoBriefcase, GoChecklist, GoLog, GoGear, GoChevronRight, GoChevronLeft, GoBookmark  } from 'react-icons/go';
-import Button from '@/components/button';
+import { BiCabinet, BiMessageRoundedDetail } from 'react-icons/bi';
+import { GoChevronLeft, GoChevronRight, GoHome } from 'react-icons/go';
+import { HiSwatch } from 'react-icons/hi2';
+import { IoPersonCircleOutline } from 'react-icons/io5';
+import { MdReviews } from 'react-icons/md';
 
 export default function Sidebar({visible}: { visible: boolean }) {
 	const currentPath = usePathname()
 	const [minified, setMinified] = useState(true)
 	
 	const routes: { path: string, name: string, icon: ReactElement }[] = [
-		{ path: '/', name: 'Página inicial', icon: <GoBookmark /> },
-		{ path: '/home', name: 'Home', icon: <GoHome /> },
-		{ path: '/negocios', name: 'Negócios', icon: <GoBriefcase /> },
-		{ path: '/tarefas', name: 'Tarefas', icon: <GoChecklist /> },
-		{ path: '/relatorios', name: 'Relatorios', icon: <GoLog /> },
-		{ path: '/configuracoes', name: 'Configurações', icon: <GoGear /> },
+		{ path: '#home', name: 'Home', icon: <GoHome /> },
+		{ path: '#about', name: 'About', icon: <IoPersonCircleOutline /> },
+		{ path: '#experience', name: 'Experiences', icon: <BiCabinet /> },
+		{ path: '#projects', name: 'Projects', icon: <HiSwatch /> },
+		{ path: '#reviews', name: 'Reviews', icon: <MdReviews /> },
+		{ path: '#contact', name: 'Contact', icon: <BiMessageRoundedDetail /> },
 	]
 	
 
@@ -25,7 +29,7 @@ export default function Sidebar({visible}: { visible: boolean }) {
 				className={`
 					z-10 relative h-full bg- max-w-fit
 					md:relative md:flex
-					transition-all duration-800 ${visible ? 'w-[300px]' : 'w-0'} 
+					transition-all duration-800 ${visible ? 'w-[50vw]' : 'w-0'} 
 					ease-linear
 				`}
 			>
@@ -41,10 +45,10 @@ export default function Sidebar({visible}: { visible: boolean }) {
 									className={`${isPathActive(route.path)} flex flex-row whitespace-nowrap align-middle justify-start hover:underline hover:bg-neutral group rounded-full h-min`}
 									href={route.path}
 								>
-									<span className='p-2 h-min'>{route.icon}</span>
+									<span className='p-2 h-min text-2xl md:text-large'>{route.icon}</span>
 									<span className={`
-												overflow-hidden max-w-fit  h-min
-												transition-all duration-1000 ${minified ? 'w-0' : 'w-[120px]'}
+												overflow-hidden max-w-min h-min
+												transition-all duration-1000 ${minified ? 'w-0' : 'w-[50vw]'}
 											` }>
 										<span className={`px-2 text-large ${minified ? 'ml-0' : '-ml-2'}`}>
 											{route.name}

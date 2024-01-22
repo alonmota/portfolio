@@ -19,8 +19,7 @@ export default function HomeLayout({
 			<section className='flex flex-row w-full h-full flex-grow relative overflow-auto'>
 				<Sidebar visible={sidebarVisible}></Sidebar>
 				
-				<div 
-					id='content'
+				<div
 					className={`flex flex-col w-full min-w-[17rem]`}
 				>
 					{children}

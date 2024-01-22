@@ -8,7 +8,7 @@ interface CommonState {
 }
 
 const initialState: CommonState = {
-	sidebarVisible: false,
+	sidebarVisible: true,
 }
 
 const commonSlice = createSlice({
