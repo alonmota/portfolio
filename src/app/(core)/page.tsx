@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export default function App() {
 	const content = useRef<HTMLDivElement>(null)
-	const [activeSection, setActiveSection] = useState('home');
+	const [activeSection, setActiveSection] = useState<string>();
 
 	useEffect(() => {
 		const currentContent = content.current;
@@ -32,7 +32,9 @@ export default function App() {
 	}, []);
 
 	useEffect(() => {
-		window.location.hash = activeSection;
+		if (activeSection) {
+			window.location.hash = activeSection;
+		}
 	}, [activeSection]);
 
 	return (
