@@ -57,12 +57,13 @@ export default function Experience() {
 	return (
 		<section
 			id='experience'
-			className="flex flex-col items-center justify-stretch w-full h-full max-h-full p-4 bg-light text-dark"
+			className="flex flex-col md:flex-row justify-center w-full h-full max-h-full p-4 bg-light text-dark relative "
 		>
-			<div className='flex flex-row min-w-fit md:w-fit justify-center max-h-full items-center mb-2 md:mb-0'>
-				<h2 className="flex flex-row items-center justify-center text-3xl mb-2 basis-1/2">Experience</h2>
-
-				<div className="grid grid-cols-1 gap-2 max-h-full overflow-auto rounded-lg">
+			<h2 className="flex flex-row items-center min-w-[200px] justify-center text-3xl md:basis-1/3 mb-4 md:mb-0">Experience</h2>
+			<div
+				className="flex flex-row flex-grow items-center min-w-[250px] md:h-full justify-center text-3xl basis-1/3 mb-4 md:mb-0 overflow-y-auto"
+			>
+				<div className="h-full w-full grid grid-cols-1 gap-2 rounded-lg">
 					{
 						experiences.map((experience) => (
 							<div
@@ -74,8 +75,8 @@ export default function Experience() {
 									<span className="text-small font-light float-end">
 										{
 											(experience.startDate.getMonth() + 1).toString() 
-											+ '/'
-											+ experience.startDate.getFullYear().toString()} - {(experience.endDate.getMonth() + 1).toString() + '/'+ experience.endDate.getFullYear().toString()
+												+ '/'
+												+ experience.startDate.getFullYear().toString()} - {(experience.endDate.getMonth() + 1).toString() + '/'+ experience.endDate.getFullYear().toString()
 										}
 									</span>
 								</div>
@@ -96,6 +97,7 @@ export default function Experience() {
 					}
 				</div>
 			</div>
+
 		</section>
 	)
 }

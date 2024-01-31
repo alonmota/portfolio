@@ -10,8 +10,8 @@ const customTheme: CustomFlowbiteTheme['carousel'] = {
 	'item': {
 		'base': 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 block w-full',
 		'wrapper': {
-			'off': 'w-full flex-shrink-0 transform cursor-default snap-center basis-1/3 mx-4',
-			'on': 'w-full flex-shrink-0 transform cursor-grab snap-center basis-1/3 mx-4'
+			'off': 'w-full flex-shrink-0 transform cursor-default snap-center md:basis-1/3 mx-4',
+			'on': 'w-full flex-shrink-0 transform cursor-grab snap-center md:basis-1/3 mx-4'
 		}
 	},
 	'indicators': {
