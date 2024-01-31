@@ -6,7 +6,6 @@ export default function Home() {
 	function scrollToContacts() {
 		const contactElement = document.getElementById('contact');
 		const content = document.getElementById('content');
-		console.log(content?.offsetTop)
 		content?.scroll({ top: contactElement?.offsetTop || 0, behavior:'smooth' });
 	};
 	return (
@@ -34,7 +33,7 @@ export default function Home() {
 					<h3 className="text-large mb-6">Fullstack Developer</h3>
 					<p className='text-center mb-6'>I enjoy building great web applications.</p>
 					<Button 
-						className='group flex flex-row whitespace-nowrap items-center justify-between px-4 py-2 m-2 bg-light text-dark-1 rounded-full'
+						className='group flex flex-row whitespace-nowrap items-center justify-between px-4 py-2 m-2 bg-light text-dark rounded-full'
 						onClick={scrollToContacts}
 					>
 						<span>Send me a message</span>

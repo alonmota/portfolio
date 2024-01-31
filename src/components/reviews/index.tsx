@@ -1,6 +1,34 @@
+'use client'
+import { Carousel, CustomFlowbiteTheme } from 'flowbite-react';
+
+const customTheme: CustomFlowbiteTheme['carousel'] = {
+	'root': {
+		'base': 'relative h-full w-full',
+		'leftControl': 'absolute top-0 left-0 flex h-full items-center justify-center px-4 focus:outline-none',
+		'rightControl': 'absolute top-0 right-0 flex h-full items-center justify-center px-4 focus:outline-none'
+	},
+	'item': {
+		'base': 'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 block w-full',
+		'wrapper': {
+			'off': 'w-full flex-shrink-0 transform cursor-default snap-center basis-1/3 mx-4',
+			'on': 'w-full flex-shrink-0 transform cursor-grab snap-center basis-1/3 mx-4'
+		}
+	},
+	'indicators': {
+		'active': {
+			'off': 'bg-gray-600 hover:bg-gray-100 h-2 w-2',
+			'on': 'bg-white h-2 w-2'
+		},
+		'wrapper': 'absolute -bottom-5 left-1/2 flex -translate-x-1/2 space-x-3'
+	},
+	'control': {
+		'base': 'invisible',
+		'icon': 'invisible'
+	},
+};
+
 
 export default function Reviews() {
-
 	const reviews = [
 		{
 			person: 'Buck Mayzes',
@@ -26,25 +54,44 @@ export default function Reviews() {
 			project: 'Team Liquid',
 			review: `Alon is an exceptional professional with a wealth of knowledge and a desire to help his team thrive. He's skilled in configurations and debugging, tackles complex tasks with ease, and excels at working independently. His contributions have been invaluable, and he's committed to making meaningful impacts on the team's success. Overall, he's an outstanding candidate for any team looking to drive growth and achieve its goals.`
 		}
-
 	]
 
 	return (
 		<section
 			id='reviews'
-			className="flex flex-col items-center justify-stretch w-full h-full p-4 bg-dark-gradient text-light"
+			className="flex flex-row items-stretch justify-stretch w-full h-full p-8 text-light bg-dark"
 		>
-			<div className='flex flex-col min-w-fit md:w-fit justify-center items-center mb-2 md:mb-0'>
-				<h2 className="text-3xl">What <a href='https://www.linkedin.com/in/alon-mota-lourenco-147966117/details/recommendations/' title='Linkedin reviews'>my colleagues say</a> about me</h2>
-				{
-					reviews.map((review, index) => (<div key={index}>
-						<span>{review.person}</span>
-						<span>{review.linkedIn}</span>
-						<span>{review.project}</span>
-						<span>{review.review}</span>
-					</div>))
-				}
+			<div className='flex flex-col flex-grow h-full md:w-fit justify-center items-center mb-2 md:mb-0'>
+				<h2 className="text-3xl mb-6">What my colleagues say about me</h2>
+				<div
+					className="flex flex-row h-full w-full p-6"
+				>
+					<Carousel theme={customTheme} slide={false}>
+						{reviews.map((review, index) => (
+							<div
+								key={index}
+								className="flex flex-col bg-light text-dark h-full max-w-full rounded-lg p-2 group"
+							>
+								<div
+									className="flex flex-col h-full max-w-full legend w-full justify-start items-center"
+								>
+									<a
+										href={review.linkedIn}
+										target='_blank'
+										title='Linkedin Profile'
+										className='font-bold hover:underline'
+									>{review.person}</a>
+									<span className='text-sm'>{review.project}</span>
+									<span
+										className='h-full text-sm text-gray-500 italic border-l-2flex flex-row items-center mx-4 my-1 rounded-lg overflow-auto'
+									>“{review.review}”</span>
+								</div>
+							</div>
+						))}
+					</Carousel>
+				</div>
 			</div>
 		</section>
 	)
 }
+

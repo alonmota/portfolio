@@ -1,4 +1,5 @@
 'use client'
+
 import { Home, About, Experience, Projects, Reviews, Contact } from '@/components';
 import { useEffect, useRef, useState } from 'react';
 
@@ -12,7 +13,6 @@ export default function App() {
 			
 			const scrollPosition = currentContent?.scrollTop || 0;
 			const sections = content.current?.querySelectorAll('section');
-			console.log(sections)
 			sections?.forEach((section) => {
 				const sectionTop = section.offsetTop;
 				const sectionHeight = section.offsetHeight;

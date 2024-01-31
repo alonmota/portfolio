@@ -7,7 +7,6 @@ import { useAppDispatch } from '@/app/(core)/hooks';
 import { toggleSidebarVisibility } from '@/state/common/common-slice';
 import Button from '@/components/button'
 
-
 export default function Header() {
 	const COMPANY_NUMBER = '+55 (61) 99248-2230'
 	const COMPANY_EMAIL = ' alon.mota.l@gmail.com'
@@ -21,7 +20,7 @@ export default function Header() {
 	}
 
 	return (
-		<header className="flex flex-row w-full py-1 bg-dark-1 text-light justify-between">
+		<header className="flex flex-row w-full py-1 bg-dark text-light justify-between">
 			<div className='flex flex-row flex-grow'>
 				<Button onClick={_toggleSidebarVisibility} className='hover:bg-neutral mx-1 p-2 rounded-full h-min text-2xl md:text-large'><HiMenu /></Button>
 				<Link
@@ -30,7 +29,7 @@ export default function Header() {
 					href={'/'}
 				>
 					<h1>
-						{APP_NAME}
+						{APP_NAME}	
 					</h1>
 				</Link>
 			</div>
