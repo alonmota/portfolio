@@ -41,7 +41,7 @@ export default function Sidebar({visible}: { visible: boolean }) {
 							<Link
 								title={route.name}
 								className={`flex flex-row whitespace-nowrap items-center justify-start hover:underline hover:bg-neutral group rounded-full h-min`}
-								href={'#'+route.path}
+								href={'/#'+route.path}
 							>
 								<span className={
 									`p-2 text-2xl md:text-large ${hash === route.path ? 'scale-125 text-highlight' : ''}`
