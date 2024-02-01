@@ -38,7 +38,7 @@ export default function Sidebar({visible}: { visible: boolean }) {
 							className='mb-2'
 							key={route.path}
 						>
-							<Link
+							<a
 								title={route.name}
 								className={`flex flex-row whitespace-nowrap items-center justify-start hover:underline hover:bg-neutral group rounded-full h-min`}
 								href={'/#'+route.path}
@@ -61,7 +61,7 @@ export default function Sidebar({visible}: { visible: boolean }) {
 									</span>
 								</span>
 											
-							</Link>
+							</a>
 						</li>
 						)
 					}
@@ -79,8 +79,4 @@ export default function Sidebar({visible}: { visible: boolean }) {
 			</nav>
 		</div>
 	);
-
-	function isPathActive(path: string): string {
-		return `link ${hash === path ? 'font-bold scale-125' : ''}`
-	}
 }
